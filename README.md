@@ -4,6 +4,10 @@
   </a>
 </p>
 
+https://www.youtube.com/watch?v=e_ZibOe77yo&list=PLVtaL0ved6dK3MfWGh2d5MiAsV5CNfnQs&index=2
+
+https://codepen.io/TiffanyCJanzen/pen/EpzVzR
+
 This template is similar to create-react-app but it's meant for 4Geeks Academy students.
 
 ##### Download the boilerplate using git

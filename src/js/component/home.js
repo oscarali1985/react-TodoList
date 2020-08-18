@@ -1,24 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
-export function Home() {
+export function Home(props) {
+	const [word, setWord] = useState("");
+	const [words, setWords] = useState([]);
+
+	const handleSubmit = () => {
+		setWords([...words, word]);
+		setWord("");
+	};
+	const handleDelete = wordToDelete => {
+		const newWords = words.filter((word, index) => {
+			return index != wordToDelete;
+		});
+		setWords(newWords);
+	};
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="d-flex flex-column justify-content-center p-3">
+			<div className="row">
+				<input
+					type="text"
+					value={word}
+					onChange={e => setWord(e.target.value)}
+				/>
+				<button
+					type="button"
+					className="btn btn-primary"
+					onClick={handleSubmit}>
+					{"agregar"}
+				</button>
+			</div>
+			<div className="col">
+				<ul>
+					{words.map((word, index) => {
+						return (
+							<li
+								key={index}
+								onClick={event => handleDelete(index)}>
+								{word}
+							</li>
+						);
+					})}
+				</ul>
+			</div>
 		</div>
 	);
 }
