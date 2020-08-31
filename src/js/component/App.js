@@ -32,12 +32,10 @@ class App extends Component {
 			newItem: ""
 		});
 
-		newItem.value === "" ? alert(`Ingrese algun valor`) :(
-
-		//add item
-		list.push(newItem)
-
-		);
+		newItem.value === ""
+			? alert(`Ingrese algun valor`)
+			: //add item
+			  list.push(newItem);
 	}
 
 	deleteItem(id) {
